@@ -1,0 +1,16 @@
+echo " "
+echo ">>> Test run starting "
+echo " "
+echo "Get list of tasks"
+echo "-----------------"
+echo " "
+curl -i http://127.0.0.1:5000/tasks
+echo " "
+echo "-----------------"
+echo " "
+echo "Get task 1"
+echo "-----------------"
+curl -i http://127.0.0.1:5000/tasks/1
+echo " "
+echo "-----------------"
+echo " "
