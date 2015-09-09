@@ -1,4 +1,4 @@
-#!flask/bin/python3.4
+#!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request, url_for
 
 app = Flask(__name__)
