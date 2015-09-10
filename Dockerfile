@@ -1,11 +1,13 @@
 FROM ubuntu:14.04
 #MAINTAINER David Sanders <dsanders_can@outlook.com>
 RUN mkdir /phonews
+RUN mkdir /phonews/static
 RUN cd /phonews
 COPY phoneWS.py /phonews/
 COPY setupFlask.sh /phonews/
 COPY testWS.sh /phonews/
 COPY README /phonews/
+COPY index.html /phonews/static/
 WORKDIR /phonews/
 RUN apt-get update && apt-get install -y python
 RUN apt-get install -y python-pip
