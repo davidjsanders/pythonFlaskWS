@@ -1,7 +1,7 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request, url_for
 
-app = Flask(__name__, static_url_path="")
+app = Flask(__name__, static_url_path = "/phonews/")
 
 tasks = [
     {
