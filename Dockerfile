@@ -9,9 +9,9 @@ COPY testWS.sh /phonews/
 COPY README /phonews/
 COPY index.html /phonews/static/
 WORKDIR /phonews/
-RUN apt-get update && apt-get install -y python
-RUN apt-get install -y python-pip
-RUN pip install virtualenv
+RUN apt-get update && apt-get install -y python3-minimal
+RUN apt-get install -y python3-pip
+RUN pip3 install virtualenv
 RUN virtualenv flask
 RUN apt-get install -y curl
 RUN flask/bin/pip install flask
