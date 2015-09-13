@@ -18,3 +18,4 @@ RUN pip3 install virtualenv
 RUN virtualenv flask
 RUN flask/bin/pip install flask
 RUN flask/bin/pip install flask-login
+RUN flask/bin/pip install flask-httpauth
