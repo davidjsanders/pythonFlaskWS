@@ -10,19 +10,11 @@ COPY README /phonews/
 COPY index.html /phonews/static/
 WORKDIR /phonews/
 RUN apt-get update && apt-get install -y python3-minimal
+RUN apt-get install -y openssl
+RUN apt-get install -y curl
+RUN apt-get install -y nginx
 RUN apt-get install -y python3-pip
 RUN pip3 install virtualenv
 RUN virtualenv flask
-RUN apt-get install -y curl
 RUN flask/bin/pip install flask
 RUN flask/bin/pip install flask-login
-RUN flask/bin/pip install flask-openid
-RUN flask/bin/pip install flask-mail
-RUN flask/bin/pip install flask-sqlalchemy
-RUN flask/bin/pip install sqlalchemy-migrate
-RUN flask/bin/pip install flask-whooshalchemy
-RUN flask/bin/pip install flask-wtf
-RUN flask/bin/pip install flask-babel
-RUN flask/bin/pip install guess_language
-RUN flask/bin/pip install flipflop
-RUN flask/bin/pip install coverage
