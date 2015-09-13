@@ -25,8 +25,8 @@
                 </td>
                 <td><p><b data-bind="text: title"></b></p><p data-bind="text: description"></p></td>
                 <td>
-                    <button data-bind="click: $parent.beginEdit" class="btn">Edit</button>
-                    <button data-bind="click: $parent.remove" class="btn">Delete</button>
+                    <span data-bind="click: $parent.beginEdit" class="btn">Edit</span>
+                    <span data-bind="click: $parent.remove" class="btn">Delete</span>
                     <span data-bind="visible: done">
                         <button data-bind="click: $parent.markInProgress" class="btn">Mark In Progress</button>
                     </span>
@@ -173,15 +173,15 @@
 		console.log("Ending beginAdd");
             }
             self.beginEdit = function(task) {
-		console.log("Starting beginEdit");
+		console.log("Starting beginEdit; task is " + task.uri());
                 editTaskViewModel.setTask(task);
                 $('#edit').modal('show');
             }
             self.edit = function(task, data) {
+		console.log("Ending beginEdit; task.uri = " + task.uri() + "; data.task.uri = " + data.task.uri + "; ");
                 self.ajax(task.uri(), 'PUT', data).done(function(res) {
                     self.updateTask(task, res.task);
                 });
-		console.log("Ending beginEdit; task.uri = " + task.uri());
             }
             self.remove = function(task) {
                 self.ajax(task.uri(), 'DELETE').done(function() {
