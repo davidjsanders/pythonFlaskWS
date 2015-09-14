@@ -158,9 +158,9 @@
             }
 
             self.beginAdd = function() {
-		console.log("Starting beginAdd");
                 $('#add').modal('show');
             }
+
             self.add = function(task) {
                 self.ajax(self.tasksURI, 'POST', task).done(function(data) {
                     self.tasks.push({
@@ -178,7 +178,6 @@
                 $('#edit').modal('show');
             }
             self.edit = function(task, data) {
-		console.log("Ending beginEdit; task.uri = " + task.uri() + "; data.task.uri = " + data.task.uri + "; ");
                 self.ajax(task.uri(), 'PUT', data).done(function(res) {
                     self.updateTask(task, res.task);
                 });
