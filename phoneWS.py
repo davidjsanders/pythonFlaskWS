@@ -45,7 +45,6 @@ def not_found(error):
     return make_response(jsonify({'error':'Not found.'}),404)
 
 @app.route('/tasks', methods=['POST'])
-@auth.login_required
 def create_task():
     if not request.json or not 'title' in request.json:
         abort(400)
@@ -61,7 +60,6 @@ def create_task():
     return jsonify({'task': newtask}), 201
 
 @app.route('/tasks/<int:task_id>', methods=['PUT'])
-@auth.login_required
 def update_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
@@ -80,7 +78,6 @@ def update_task(task_id):
     return jsonify({'task': task[0]})
 
 @app.route('/tasks/<int:task_id>', methods=['DELETE'])
-@auth.login_required
 def delete_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
@@ -89,12 +86,11 @@ def delete_task(task_id):
     return jsonify({'result': True})
 
 @app.route('/tasks', methods=['GET'])
-@auth.login_required
 def get_tasks():
     return jsonify({'tasks': [make_hyperlink(task) for task in tasks]})
 
 @app.route('/tasks/<int:task_id>', methods=['GET'])
-@auth.login_required
+#@auth.login_required
 def get_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
